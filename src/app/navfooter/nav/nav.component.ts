@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 import { AppComponent } from 'src/app/app.component';
 
@@ -8,12 +9,20 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
+  // Import global vars
   NewAppComponent: AppComponent = new AppComponent();
 
-  constructor() { }
+  // Navigation JS stuff
+  mobileQuery: MediaQueryList;
 
-  ngOnInit() {
+  fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
+
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
-
 }

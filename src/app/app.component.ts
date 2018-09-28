@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title: String;
+  Title: String;
 
   constructor() {
-    this.title = 'Job\'s Test Environment :)';
+    this.Title = 'Job\'s Test Environment :)';
   }
 }
