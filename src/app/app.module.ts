@@ -4,16 +4,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
+import { NavfooterModule } from './navfooter/navfooter.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NavfooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
